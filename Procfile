@@ -1,2 +1,2 @@
-web: cd client && npm start
-worker: cd api && go run main.go
+web: cd client && npm install && npm start
+worker: cd server/api/golang && go run main.go
