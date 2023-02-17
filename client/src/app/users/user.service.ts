@@ -6,7 +6,7 @@ import { Imembers } from './Iuser';
   providedIn: 'root',
 })
 export class UserService {
-  private userUrl = 'localhost:4200/';
+  private userUrl = '/';
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<Imembers[]> {

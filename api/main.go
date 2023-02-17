@@ -25,14 +25,14 @@ func main() {
 func setupRouter() *gin.Engine {
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	r.GET("ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "pong")
-	})
-	config.AllowOrigins = []string{"https://localhost:8080/"}
+	// r.GET("ping", func(c *gin.Context) {
+	// 	c.JSON(http.StatusOK, "pong")
+	// })
+	config.AllowOrigins = []string{"https://localhost:4200/"}
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 
-	r.GET("localhost:4200/", userRepo.GetUsers)
+	r.GET("/", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
