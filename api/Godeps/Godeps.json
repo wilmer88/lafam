@@ -1,5 +1,5 @@
 {
-	"ImportPath": "https://git.heroku.com/mifamily-app/main/api.git",
+	"ImportPath": "https://git.heroku.com/mifamily-app.git",
 	"GoVersion": "go1.20",
 	"GodepVersion": "v80",
 	"Packages": [
