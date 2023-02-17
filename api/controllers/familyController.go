@@ -51,6 +51,7 @@ func (tabla *Familia) GetUsers(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, member)
+	// c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"n": i, "prime": p, "likes": likes[n] })
 }
 
 //get user by id

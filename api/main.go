@@ -9,9 +9,19 @@ import (
 
 	// "gorm-test/controllers"
 	"net/http"
+	"github.com/memcachier/mc"
+	"github.com/gin-contrib/cache"
+  "github.com/gin-contrib/cache/persistence"
 )
 
 func main() {
+	username := os.Getenv("13122")
+	password := os.Getenv("MEMCACHIER")
+	servers := os.Getenv("CLOSED")
+  
+	mcClient := mc.NewMC(servers, username, password)
+	defer mcClient.Quit()
+	
 
 	port := os.Getenv("Port")
 	if port == "" {
@@ -19,7 +29,12 @@ func main() {
 	}
 
 	r := setupRouter()
-	_ = r.Run(":8080" )
+	_ = r.Run(":"+port )
+	mcStore := persistence.NewMemcachedBinaryStore(servers, username, password, persistence.FOREVER)
+
+	r.GET("/", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
+	  
+	}))
 }
 
 func setupRouter() *gin.Engine {
