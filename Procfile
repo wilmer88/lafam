@@ -1,2 +1,2 @@
-web: cd api && go run bin/lafamily
-
+web: bin\lafamily.exe
+worker: cd client npm start
