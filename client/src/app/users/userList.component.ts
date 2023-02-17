@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {OnInit} from "@angular/core";
-import { Input } from '@angular/core';
+// import { Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Imembers } from './Iuser';
 import { UserService } from './user.service';
 
@@ -9,15 +10,16 @@ import { UserService } from './user.service';
   templateUrl: "./users_list.component.html",
   styleUrls: ["./user_list.component.css"]
 })
-export class usersTable implements OnInit {
+export class usersTable implements OnInit, OnDestroy {
  
   pageTitle: string ="Family Members";
   imageWidth: number = 80;
   imageMargin: number = 5;
   showImage = false;
-  errorMassage: string = "";
+  errorMassage: string = '';
+  sub!: Subscription 
 
- private _listFilter: string = "";
+ private _listFilter: string = '';
 
  get listFilter(): string {
     return this._listFilter;
@@ -33,15 +35,15 @@ export class usersTable implements OnInit {
 
  members:  Imembers[]= [];
 
-// fam: string = "member";
+fam: string = "members";
 
 toggleImage():void {
   this.showImage = !this.showImage;
-}
-  constructor(private userService:UserService){}
+};
+  constructor(private userService:UserService){};
 
   ngOnInit(): void  {
-    this.userService.getUsers().subscribe({
+    this.sub = this.userService.getUsers().subscribe({
       next: members=>{
         this.members =  members;
         this.filterMembers = this.members;
@@ -50,17 +52,21 @@ toggleImage():void {
     })
   };
 
-  
-
-  onRatingClicked(message:string):void{
-    this.pageTitle="product list: " + message;
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   };
+
+
 
   performFilter(filterBy: string): Imembers[]{
     filterBy = filterBy.toLowerCase();
     return this.members.filter((member: Imembers) => 
-    member.FirstName.toLocaleLowerCase().includes(filterBy)
+    member.FirstName.toLocaleLowerCase().includes(filterBy),
     )
-  }
+  };
+
+  onRatingClicked(message:string):void{
+    this.pageTitle="product list: " + message;
+  };
 
 }
