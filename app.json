@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Go",
-  "description": "Go Getting Started Example App",
+  "name": "lafamily-app",
+  "description": "la familia",
   "keywords": [
-    "getting-started",
+
     "go",
     "sample",
     "example"
