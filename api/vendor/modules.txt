@@ -1,3 +1,11 @@
+# github.com/bradfitz/gomemcache v0.0.0-20220106215444-fb4bf637b56d
+## explicit; go 1.12
+github.com/bradfitz/gomemcache/memcache
+# github.com/gin-contrib/cache v1.2.0
+## explicit; go 1.18
+github.com/gin-contrib/cache
+github.com/gin-contrib/cache/persistence
+github.com/gin-contrib/cache/utils
 # github.com/gin-contrib/cors v1.4.0
 ## explicit; go 1.13
 github.com/gin-contrib/cors
@@ -35,6 +43,9 @@ github.com/goccy/go-json/internal/encoder/vm_color_indent
 github.com/goccy/go-json/internal/encoder/vm_indent
 github.com/goccy/go-json/internal/errors
 github.com/goccy/go-json/internal/runtime
+# github.com/gomodule/redigo v1.8.9
+## explicit; go 1.16
+github.com/gomodule/redigo/redis
 # github.com/heroku/x v0.0.55
 ## explicit; go 1.12
 github.com/heroku/x/hmetrics
@@ -60,6 +71,12 @@ github.com/leodido/go-urn
 # github.com/mattn/go-isatty v0.0.16
 ## explicit; go 1.15
 github.com/mattn/go-isatty
+# github.com/memcachier/mc v2.0.1+incompatible
+## explicit
+github.com/memcachier/mc
+# github.com/memcachier/mc/v3 v3.0.3
+## explicit; go 1.12
+github.com/memcachier/mc/v3
 # github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
 ## explicit
 github.com/modern-go/concurrent
@@ -75,6 +92,9 @@ github.com/pelletier/go-toml/v2/internal/tracker
 github.com/pelletier/go-toml/v2/unstable
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
+# github.com/robfig/go-cache v0.0.0-20130306151617-9fc39e0dbf62
+## explicit
+github.com/robfig/go-cache
 # github.com/rogpeppe/go-internal v1.9.0
 ## explicit; go 1.17
 # github.com/tools/godep v0.0.0-20180126220526-ce0bfadeb516
