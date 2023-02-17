@@ -1,2 +1,3 @@
-web: cd client && npm install && npm start
-web: api && go run  bin/go-getting-started
+web: api && go run  bin/lafamily
+worker: cd client && npm install && npm start
+
