@@ -55,7 +55,7 @@ func (tabla *Familia) GetUsers(c *gin.Context) {
 
 //get user by id
 func (repository *Familia) GetUser(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Param("Id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 	var member models.Fammember
 	err := models.GetUser(repository.Db, &member, id)
 	if err != nil {
@@ -73,7 +73,7 @@ func (repository *Familia) GetUser(c *gin.Context) {
 // update user
 func (repository *Familia) UpdateUser(c *gin.Context) {
 	var member models.Fammember
-	id, _ := strconv.Atoi(c.Param("Id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 	err := models.GetUser(repository.Db, &member, id)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -96,7 +96,7 @@ func (repository *Familia) UpdateUser(c *gin.Context) {
 // delete user
 func (repository *Familia) DeleteUser(c *gin.Context) {
 	var member models.Fammember
-	id, _ := strconv.Atoi(c.Param("Id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 	err := models.DeleteUser(repository.Db, &member, id)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})

@@ -1,8 +1,0 @@
-#!/bin/sh
-cat << EOF
----
-addons:
-  - JAWSDB
-default_process_types:
-  web: bin/node server.js
-EOF

@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-	"gorm.io/gorm"
 	"lafam/controllers"
 
 	"github.com/gin-contrib/cors"
@@ -29,10 +28,10 @@ func setupRouter() *gin.Engine {
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
-	config.AllowOrigins = []string{"https://localhost:4200/"}
+	config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("localhost:4200/ *", userRepo.GetUsers)
+	r.GET("lafamily", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)

@@ -12,9 +12,12 @@ import { UserService } from './user.service';
   <li *ngFor="let person of persons" (click)="seePerson(person)">{{person.id}}</li>
   </ul>
    </div>
+
    <div *ngIf="selectedPerson">
    youve selected {{this.selectedPerson.name}}
    </div>
+
+
   `,
   styles: [
   ]
