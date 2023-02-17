@@ -50,6 +50,8 @@ toggleImage():void {
     })
   };
 
+  
+
   onRatingClicked(message:string):void{
     this.pageTitle="product list: " + message;
   };

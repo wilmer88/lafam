@@ -28,13 +28,18 @@ func setupRouter() *gin.Engine {
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
-	config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
+	config.AllowOrigins = []string{"https://localhost:8080/"}
+	r.Use(cors.New(config))
 	userRepo := controllers.New()
-	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("lafamily", userRepo.GetUsers)
+
+	r.GET("localhost:4200/", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
+	r.POST("/lafamily", userRepo.CreateUser)
 
 	return r
 }
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	}
