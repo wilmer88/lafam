@@ -14,8 +14,8 @@ RUN STACK=heroku-20 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /
 FROM heroku/heroku:20
 
 COPY --from=build /app /app
-ENV HOME /app
-WORKDIR /app
+ENV HOME /api
+WORKDIR /api
 RUN useradd -m heroku
 USER heroku
-CMD /app/bin/go-getting-started
+CMD /app/bin/mifamily-app
