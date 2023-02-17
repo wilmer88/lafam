@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && cd lafamily-app && go run main.go",
-    "start:prod": "npm start",
-    "build": "ng build",
+    "start": "go run main.go && npm run:build",
+    "start:prod": "ng serve",
+    "build": "npm install",
+    "heroku-postbuild": "cd client && npm run start:prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
