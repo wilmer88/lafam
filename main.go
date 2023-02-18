@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	// "gorm-test/controllers"
-	"net/http"
+	// "net/http"
 	"github.com/memcachier/mc"
 	"github.com/gin-contrib/cache"
   "github.com/gin-contrib/cache/persistence"
@@ -40,27 +40,15 @@ func main() {
 }
 
 func setupRouter() *gin.Engine {
-
 	r := gin.Default()
+
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com, https://localhost:4200"}
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/lafamily"}
+	// config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
 
-
-
-	r.GET("/api/lafamily", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "pong")
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
-		if c.Request.Method == "OPTIONS" {
-			c.AbortWithStatus(204)
-			return
-		}
-
-		c.Next()
-	})
 
 	r.Use(cors.New(config))
+
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
 	r.GET("/lafamily", userRepo.GetUsers)
@@ -69,6 +57,3 @@ func setupRouter() *gin.Engine {
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
 	return r
 }
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-	}

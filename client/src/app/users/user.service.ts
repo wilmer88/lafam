@@ -10,6 +10,9 @@ import { Imembers } from './Iuser';
 export class UserService {
 
   private userUrl = 'https://mifamily-app.herokuapp.com/api/';
+  
+  // private userUrl = 'https://localhost:8080/lafamily';
+
 
   constructor(private http: HttpClient) { };
 

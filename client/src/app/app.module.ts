@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { JobsComponent } from './events/events.component';
 // import { TodoComponent } from './person/todo.component';
-import { usersTable } from './users/userList.component';
+import { UsersTable } from './users/userList.component';
 import { StarComponent } from './shared/star.component';
 
 
@@ -16,8 +16,8 @@ import { StarComponent } from './shared/star.component';
     AppComponent,
     // JobsComponent,
     // TodoComponent,
-    usersTable,
     StarComponent,
+    UsersTable
   ],
   imports: [
     BrowserModule,
