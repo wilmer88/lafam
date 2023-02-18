@@ -8,7 +8,7 @@ import { Imembers } from './Iuser';
 })
 
 export class UserService {
-  private userUrl = '/lafamily';
+  private userUrl = '/';
 
   constructor(private http: HttpClient) { };
 
