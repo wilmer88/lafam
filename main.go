@@ -29,7 +29,7 @@ func main() {
 	}
 
 	r := setupRouter()
-	_ = r.Run(":"+port )
+	_ = r.Run(port)
 	mcStore := persistence.NewMemcachedBinaryStore(servers, username, password, persistence.FOREVER)
 
 	r.GET("/", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
@@ -41,7 +41,7 @@ func setupRouter() *gin.Engine {
 
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/"}
+	config.AllowOrigins = []string{"https://"}
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
