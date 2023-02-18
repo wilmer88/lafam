@@ -23,7 +23,7 @@ func main() {
 	defer mcClient.Quit()
 	
 
-	port := os.Getenv("Port")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
@@ -41,14 +41,14 @@ func setupRouter() *gin.Engine {
 
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:4200"}
+	config.AllowOrigins = []string{"/lafamily"}
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
 
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
-	r.POST("/lafamily", userRepo.CreateUser)
+	r.POST("/addfamily", userRepo.CreateUser)
 	r.GET("/lafamily", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)

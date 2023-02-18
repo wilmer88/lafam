@@ -5,8 +5,8 @@ import {HttpClientModule} from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { JobsComponent } from './jobs/jobs.component';
-import { TodoComponent } from './todo/todo.component';
+// import { JobsComponent } from './events/events.component';
+// import { TodoComponent } from './person/todo.component';
 import { usersTable } from './users/userList.component';
 import { StarComponent } from './shared/star.component';
 
@@ -14,8 +14,8 @@ import { StarComponent } from './shared/star.component';
 @NgModule({
   declarations: [
     AppComponent,
-    JobsComponent,
-    TodoComponent,
+    // JobsComponent,
+    // TodoComponent,
     usersTable,
     StarComponent,
   ],

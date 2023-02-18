@@ -8,10 +8,10 @@ import (
 	"gorm.io/gorm"
 )
 
-const DB_USERNAME = "root"
-const DB_PASSWORD = "morter706"
-const DB_NAME = "wilmerfamily"
-const DB_HOST = "localhost"
+const DB_USERNAME = "yg44om958iie64y0"
+const DB_PASSWORD = "r77jpsqasz2v392w"
+const DB_NAME = "qo08agkjf6rg2k63"
+const DB_HOST = "r77jpsqasz2v392w"
 const DB_PORT = "3306"
 
 var Db *gorm.DB
@@ -22,8 +22,9 @@ func InitDb() *gorm.DB {
 }
 
 func connectDB() *gorm.DB {
+	ConnString := "yg44om958iie64y0:r77jpsqasz2v392w@tcp(qz8si2yulh3i7gl3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306)/qo08agkjf6rg2k63?parseTime=true&loc=Local"
 	var err error
-	dsn := "root:morter706@tcp(127.0.0.1:3306)/wilmerfamily?parseTime=true&loc=Local"
+	dsn :=  ConnString
 	fmt.Println("dsn :is workig ", dsn)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   <div class="row align-items-start">
 
     <div class="col-2">
-    <app-jobs></app-jobs>
+ 
     </div>
 
     <div class="col">
@@ -15,11 +15,12 @@ import { Component } from '@angular/core';
     
     <h1>{{title}}</h1>
     <app-users></app-users>
+
     </div>
     </div>
 
     <div class="col-2">
-    <app-todo></app-todo>
+
     </div>
 
 
