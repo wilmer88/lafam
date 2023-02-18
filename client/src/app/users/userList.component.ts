@@ -61,7 +61,7 @@ toggleImage():void {
   performFilter(filterBy: string): Imembers[]{
     filterBy = filterBy.toLowerCase();
     return this.members.filter((member: Imembers) => 
-    member.FirstName.toLocaleLowerCase().includes(filterBy),
+    member.Firstname.toLocaleLowerCase().includes(filterBy),
     )
   };
 

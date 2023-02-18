@@ -9,7 +9,7 @@ import { Imembers } from './Iuser';
 
 export class UserService {
 
-  private userUrl = '**';
+  private userUrl = '/lafamily';
 
   constructor(private http: HttpClient) { };
 

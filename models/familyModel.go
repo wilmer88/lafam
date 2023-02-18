@@ -7,9 +7,9 @@ import (
 
 type Fammember struct {
 	gorm.Model
-	FirstName  string
+	Firstname  string
 	Happiness int
-	UrlStr string
+	Urlstr string
 }
 
 //create a user
