@@ -32,7 +32,7 @@ func main() {
 	_ = r.Run(":"+port )
 	mcStore := persistence.NewMemcachedBinaryStore(servers, username, password, persistence.FOREVER)
 
-	r.GET("/", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
+	r.GET("/lafamily", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
 	  
 	}))
 }
