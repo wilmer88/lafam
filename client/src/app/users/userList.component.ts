@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import {OnInit} from "@angular/core";
-// import { Input } from '@angular/core';
+import { Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Imembers } from './Iuser';
 import { UserService } from './user.service';
@@ -34,22 +34,29 @@ export class usersTable implements OnInit, OnDestroy {
  filterMembers: Imembers[]=[];
 
  members:  Imembers[]= [];
+constructor(private userService:UserService){ };
 
-fam: string = "members";
+performFilter(filterBy: string): Imembers[]{
+  filterBy = filterBy.toLowerCase();
+  return this.members.filter((member: Imembers) => 
+  member.Firstname.toLocaleLowerCase().includes(filterBy),
+  )
+};
+
+// fam: string = "members";
 
 toggleImage():void {
   this.showImage = !this.showImage;
 };
-  constructor(private userService:UserService){};
+
 
   ngOnInit(): void  {
     this.sub = this.userService.getUsers().subscribe({
       next: members=>{
-        this.members =  members;
-        this.filterMembers = this.members;
-      },
-      error: err => this.errorMassage = err
-    })
+        this.members =  members,
+        this.filterMembers = this.members},
+      error: err => this.errorMassage = err,
+    });
   };
 
   ngOnDestroy(): void {
@@ -58,12 +65,7 @@ toggleImage():void {
 
 
 
-  performFilter(filterBy: string): Imembers[]{
-    filterBy = filterBy.toLowerCase();
-    return this.members.filter((member: Imembers) => 
-    member.Firstname.toLocaleLowerCase().includes(filterBy),
-    )
-  };
+
 
   onRatingClicked(message:string):void{
     this.pageTitle="product list: " + message;
