@@ -1,6 +1,6 @@
-export interface Imembers {
+export interface Ifammembers {
     ID: number;
     Firstname: string;
-    Urlstr: string;
     Happiness: number;
+    Urlstr: string;
 }

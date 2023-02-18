@@ -2,26 +2,25 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { Imembers } from './Iuser';
+import { Ifammembers } from './Imembers';
 @Injectable({
   providedIn: 'root',
 })
 
 export class UserService {
 
-  private userUrl = 'https://mifamily-app.herokuapp.com/api/';
+  // private userUrl = 'https://mifamily-app.herokuapp.com/api/';
   
-  // private userUrl = 'https://localhost:8080/lafamily';
+  private userUrl = '/lafamily';
 
 
   constructor(private http: HttpClient) { };
 
-  getUsers(): Observable<Imembers[]> {
-    return this.http.get<Imembers[]>(this.userUrl).pipe(
+  getUsers(): Observable<Ifammembers[]> {
+    return this.http.get<Ifammembers[]>(this.userUrl).pipe(
       tap(data => console.log('ALL:', JSON.stringify(data))),
       catchError(this.handleError)
     );
-
 }
 
   
