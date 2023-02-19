@@ -6,11 +6,6 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
-
-	// "gorm-test/controllers"
-	"net/http"
-	"github.com/gin-contrib/cache"
-	"github.com/gin-contrib/cache/persistence"
 	"github.com/memcachier/mc"
 )
 
@@ -29,7 +24,7 @@ func main() {
 
 	r := setupRouter()
 
-	r.Use(static.Serve("/", static.LocalFile("./public", true)))
+	r.Use(gin.Static("/public"))
 
 	_ = r.Run(":" + port)
 }

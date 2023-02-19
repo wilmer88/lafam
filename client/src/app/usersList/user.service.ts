@@ -9,11 +9,8 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = '/';
+  private userUrl = '/lafamily';
   
-  // private userUrl = '/lafamily';
-
-
   constructor(private http: HttpClient) { };
 
   getUsers(): Observable<Ifammembers[]> {
