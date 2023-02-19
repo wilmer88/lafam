@@ -1,1 +1,1 @@
- web: bin/lafam
+ web: server
