@@ -2,17 +2,17 @@ package controllers
 
 import (
 	"errors"
-
-	"lafam/database"
-	"lafam/models"
+	"log"
 
 	// "gorm-test/database"
 	// "gorm-test/models"
 
 	"net/http"
 	"strconv"
-
+	
 	"github.com/gin-gonic/gin"
+	"github.com/wilmer88/lafam/database"
+	"github.com/wilmer88/lafam/models"
 
 	_ "github.com/heroku/x/hmetrics/onload"
 	"gorm.io/gorm"
@@ -24,14 +24,18 @@ type Familia struct {
 
 func New() *Familia {
 	db := database.InitDb()
-	db.AutoMigrate(&models.Fammember{})
+if err := db.AutoMigrate(&models.Fammember{}); err != nil {
+	log.Fatalf("error acured during database migrate: %s", err.Error())
+}
 	return &Familia{Db: db}
 }
 
 //create user
 func (repository *Familia) CreateUser(c *gin.Context) {
 	var member models.Fammember
-	c.ShouldBindJSON(&member)
+	if err := c.ShouldBindJSON(&member); err != nil {
+		log.Fatalf("error when ShuldBindJson: %s", err.Error())
+	}
 	err := models.CreateUser(repository.Db, &member)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
@@ -85,7 +89,11 @@ func (repository *Familia) UpdateUser(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
-	c.BindJSON(&member)
+
+
+	if err := c.BindJSON(&member); err != nil {
+		 log.Fatalf("c.BindJSON was not able to happen: %s", err.Error() )
+	}
 	err = models.UpdateUser(repository.Db, &member)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})

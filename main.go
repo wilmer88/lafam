@@ -2,16 +2,16 @@ package main
 
 import (
 	"os"
-	"lafam/controllers"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/wilmer88/lafam/controllers"
 
 	// "gorm-test/controllers"
 	// "net/http"
-	"github.com/memcachier/mc"
 	"github.com/gin-contrib/cache"
-  "github.com/gin-contrib/cache/persistence"
+	"github.com/gin-contrib/cache/persistence"
+	"github.com/memcachier/mc"
 )
 
 func main() {
