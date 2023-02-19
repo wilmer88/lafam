@@ -2,9 +2,8 @@ package main
 
 import (
 	"os"
-
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 	"github.com/wilmer88/lafam/controllers"
 	"github.com/memcachier/mc"
 )
@@ -21,6 +20,7 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+	
 
 	r := setupRouter()
 

@@ -1,4 +1,4 @@
-module github.com/wilmer88/lafam
+module petehouston.com/gin-serve-staticfiles
 
 go 1.20
 
@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.8.2
 	github.com/heroku/x v0.0.55
 	github.com/memcachier/mc v2.0.1+incompatible
+	github.com/wilmer88/lafam v0.0.0-20230219093224-2310ac38fb0b
 	gorm.io/driver/mysql v1.4.7
 	gorm.io/gorm v1.24.5
 )
