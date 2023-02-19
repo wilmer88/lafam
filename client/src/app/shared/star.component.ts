@@ -1,12 +1,10 @@
 import {Component,EventEmitter,Input, OnChanges, Output} from "@angular/core";
 
-
 @Component({
     selector: "happy-stars",
     templateUrl: "./star.component.html",
     styleUrls:["./star.component.css"]
 })
-
 
 export class StarComponent{
    @Input() rating: number = 0;

@@ -2,42 +2,36 @@ package main
 
 import (
 	"os"
-	"github.com/gin-contrib/static"
-	"github.com/gin-gonic/gin"
+	"path"
+	"path/filepath"
+
 	"github.com/gin-contrib/cors"
-	"github.com/wilmer88/lafam/controllers"
+	// "github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
 	"github.com/memcachier/mc"
-	
+	"github.com/wilmer88/lafam/controllers"
 )
 
 func main() {
 	username := os.Getenv("MEMCACHIER_USERNAME")
 	password := os.Getenv("MEMCACHIER_PASSWORD")
 	servers := os.Getenv("MEMCACHIER_SERVERS")
-  
+
 	mcClient := mc.NewMC(servers, username, password)
 	defer mcClient.Quit()
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-	
-
-	r := setupRouter()
-
-	r.Use(static.Serve("/", static.LocalFile("/public", false)))
-
-	_ = r.Run(":" + port)
-}
-
-func setupRouter() *gin.Engine {
 	r := gin.Default()
-
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/lafamily"}
+	config.AllowOrigins = []string{"https://localhost:4200"}
 	r.Use(cors.New(config))
-
+	r.NoRoute(func(c *gin.Context) {
+		dir, file := path.Split(c.Request.RequestURI)
+		ext := filepath.Ext(file)
+		if file == "" || ext == "" {
+			c.File("/public")
+		} else {
+			c.File("/dist" + path.Join(dir, file))
+		}
+	})
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
 	r.GET("/lafamily", userRepo.GetUsers)
@@ -45,5 +39,12 @@ func setupRouter() *gin.Engine {
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
 
-	return r
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+
+	_ = r.Run(":" + port)
+
 }

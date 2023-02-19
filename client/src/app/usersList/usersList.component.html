@@ -68,18 +68,12 @@
           <!-- <td>{{this.jfammembers.id | currency: "USD" : "symbol" : "1.2-2" }}</td> -->
           <td>{{member.ID}}</td>
           <td>{{member.Firstname | uppercase}}</td>
-          
+            <!-- <td > <happy-stars [rating]='member.Happiness'></happy-stars> </td>  -->
+        
+          <td> <happy-stars [rating]='member.Happiness'
+           (ratingClicked)="onRatingClicked($event)"></happy-stars> </td> 
 
-   
-            <td > <happy-stars [rating]='member.Happiness'></happy-stars> </td> 
-          
-          <!-- <td></td> -->
 
-     
-          <!-- <td> <happy-stars [rating]={this.member.Happiness}
-           (ratingClicked)="onRatingClicked($event)"></happy-stars> </td>  -->
-
-           <!-- <td> <happy-stars></happy-stars> </td>  -->
         </tr>
       </tbody>
     </table>

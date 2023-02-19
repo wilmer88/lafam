@@ -2,4 +2,4 @@ build:
   languages:
     -go
 
-    web: cd client npm start
+    web: bin/lafam
