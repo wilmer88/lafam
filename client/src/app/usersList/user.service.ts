@@ -9,7 +9,7 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = '/lafamily';
+  private userUrl = '/';
   
   // private userUrl = '/lafamily';
 
