@@ -2,12 +2,13 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "go run main.go && npm run:build",
-    "start:prod": "ng serve",
-    "build": "npm install",
-    "heroku-postbuild": "cd client && npm run start:prod",
+    "ng": "ng serve",
+    "start": "ng serve --port $PORT --disable-host-check",
+    "start:prod": "ng",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
     "test": "ng test"
   },
   "private": true,
