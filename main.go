@@ -8,20 +8,19 @@ import (
 	"github.com/wilmer88/lafam/controllers"
 
 	// "gorm-test/controllers"
-	// "net/http"
+	"net/http"
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/memcachier/mc"
 )
 
 func main() {
-	username := os.Getenv("13122")
-	password := os.Getenv("MEMCACHIER")
-	servers := os.Getenv("CLOSED")
+	username := os.Getenv("MEMCACHIER_USERNAME")
+	password := os.Getenv("MEMCACHIER_PASSWORD")
+	servers := os.Getenv("MEMCACHIER_SERVERS")
   
 	mcClient := mc.NewMC(servers, username, password)
 	defer mcClient.Quit()
-	
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -30,34 +29,24 @@ func main() {
 
 	r := setupRouter()
 
-	_ = r.Run(":"+port)
+	r.Use(static.Serve("/", static.LocalFile("./public", true)))
 
-	mcStore := persistence.NewMemcachedBinaryStore(servers, username, password, persistence.FOREVER)
-
-	r.GET("/", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
-	  
-	}))
-
-	r.NoRoute(func(c *gin.Context) {
-		c.File("./static/index.html")
-	 })
+	_ = r.Run(":" + port)
 }
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
-	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/lafamily"} 
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-
-
 	r.Use(cors.New(config))
 
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/", userRepo.GetUsers)
+	r.GET("/lafamily", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
+
 	return r
 }
