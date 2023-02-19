@@ -44,7 +44,7 @@ func setupRouter() *gin.Engine {
 
 	config := cors.DefaultConfig()
 	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/lafamily"}
-	config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 
 
 	r.Use(cors.New(config))

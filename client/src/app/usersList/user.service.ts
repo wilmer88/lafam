@@ -9,9 +9,9 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  // private userUrl = 'https://mifamily-app.herokuapp.com/api/';
+  private userUrl = 'https://mifamily-app.herokuapp.com/api/';
   
-  private userUrl = '/lafamily';
+  // private userUrl = '/lafamily';
 
 
   constructor(private http: HttpClient) { };
