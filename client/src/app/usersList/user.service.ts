@@ -9,7 +9,7 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = '/lafamily';
+  private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   
   constructor(private http: HttpClient) { };
 
