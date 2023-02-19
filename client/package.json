@@ -5,14 +5,19 @@
     "ng": "ng serve",
     "start": "npm install && npm run build",
     "start:prod": "ng",
-    "build": "ng build --prod",
+    "build": "ng build ",
     "watch": "ng build --watch --configuration development",
-    "heroku-postbuild": "ng serve --port $PORT --disable-host-check",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test"
   },
-  "private": true,
+  "static": {
+    "root": "dist/",
+    "clean_urls": true,
+    "routes": {
+      "/**": "index.html"
+    }
+  },
   "dependencies": {
     "@angular/animations": "^15.1.0",
     "@angular/common": "^15.1.0",
