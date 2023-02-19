@@ -37,6 +37,10 @@ func main() {
 	r.GET("/", cache.CachePage(mcStore, persistence.DEFAULT, func(c *gin.Context) {
 	  
 	}))
+
+	r.NoRoute(func(c *gin.Context) {
+		c.File("./static/index.html")
+	 })
 }
 
 func setupRouter() *gin.Engine {
