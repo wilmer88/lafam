@@ -1,4 +1,4 @@
- web: bin/lafam
+ web: cd client && npm start 
 'vendor/*' > .gitignore
 '!vendor/vendor.json' >> .gitignore
-worker: cd client && npm start
+worker: bin/lafam
