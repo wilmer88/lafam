@@ -2,10 +2,12 @@ package main
 
 import (
 	"os"
+	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
 	"github.com/wilmer88/lafam/controllers"
 	"github.com/memcachier/mc"
+	
 )
 
 func main() {
@@ -24,7 +26,7 @@ func main() {
 
 	r := setupRouter()
 
-	r.Use(gin.Static("/public"))
+	r.Use(static.Serve("/", static.LocalFile("/public", false)))
 
 	_ = r.Run(":" + port)
 }
