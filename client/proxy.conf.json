@@ -1,6 +1,6 @@
 {
-    "/family": {
-        "target": "http://localhost:8080",
+    "/api/family": {
+        "target": "https://mifamily-app.herokuapp.com/lafamily",
         "secure": "false"
     }
 }

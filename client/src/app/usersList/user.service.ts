@@ -1,7 +1,7 @@
 
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError,of } from 'rxjs';
 import { Ifammembers } from './Imembers';
 @Injectable({
   providedIn: 'root',
@@ -9,19 +9,43 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = 'https://localhost:8080/lafamily';
-  // private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
+  // private userUrl = 'https://localhost:8080/lafamily';
+  private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   constructor(private http: HttpClient) { };
 
   getUsers(): Observable<Ifammembers[]> {
-    console.log("getting fam called");
     return this.http.get<Ifammembers[]>(this.userUrl).pipe(
       tap(data => console.log('ALL:', JSON.stringify(data))),
       catchError(this.handleError)
-    )
+    );
+}
 
-    
-};
+
+
+
+
+  // constructor(private http: HttpClient) { };
+
+  // getUsers(): Observable<Ifammembers[]> {
+  //   console.log("getting fam called");
+  //   return this.http.get<Ifammembers[]>(this.userUrl).pipe(
+  //     tap(data => console.log('ALL:', JSON.stringify(data))),
+  //     catchError(this.handleError)
+  //   )
+  
+//   getUsers(): Observable<Ifammembers[]> {
+//     console.log("getting fam called");
+//     return this.http.get<Ifammembers[]>('https://localhost:8080/api/lafamily') 
+   
+// };
+
+// private handleError<T> (operation = 'operation', result?: T) {
+//   return (error:any): Observable<T> => {
+//     console.error(error);
+//     return of(result as T);
+//   };
+// };
+
 
   private handleError(err: HttpErrorResponse) {
     let errorMassage = '';
@@ -33,5 +57,6 @@ export class UserService {
     console.error(errorMassage);
     return throwError(() => errorMassage)
   };
-};
+
+}
 

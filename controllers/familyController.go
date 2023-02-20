@@ -48,15 +48,15 @@ func (repository *Familia) CreateUser(c *gin.Context) {
 
 //get users
 func (tabla *Familia) GetUsers(c *gin.Context) {
-	var member []models.Fammember
-	err := models.GetUsers(tabla.Db, &member)
+	var member []models.Fammember;
+	err := models.GetUsers(tabla.Db, &member);
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
-		return
-	}
-	c.JSON(http.StatusOK, member)
+		return;
+	};
+	c.JSON(http.StatusOK, member);
 	// c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"n": i, "prime": p, "likes": likes[n] })
-}
+};
 
 //get user by id
 func (repository *Familia) GetUser(c *gin.Context) {
