@@ -1,2 +1,2 @@
-web: mypeeps && cd client && npm start
+web: mifamily && cd client && npm start
 worker:
