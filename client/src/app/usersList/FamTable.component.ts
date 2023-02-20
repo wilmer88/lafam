@@ -6,18 +6,19 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
  @Component({
-  selector: 'coat-users',
+  selector: 'coat-FamTable',
   templateUrl: './usersList.component.html',
   styleUrls: ['./userList.component.css']
 })
 
-export class UsersTable implements OnInit {
+export class FamTable implements OnInit, OnDestroy {
   cardTitle: string = "Family Members";
   imageWidth: number = 80;
   imageMargin: number = 5;
   showImage = false;
   errorMessage: string = '';
   sub!: Subscription;
+  // iid: number;
 
   private _listFilter: string = '';
 
@@ -45,16 +46,30 @@ export class UsersTable implements OnInit {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
+
   constructor(private httpUserService: UserService) { }
   ngOnInit(): void {
     this.sub = this.httpUserService.getUsers().subscribe({
-      next: (mem) => {
-        this.jfammembers = mem;
-        this.filterMembers= this.jfammembers;
+      next: (jfammembers) => {
+        this.jfammembers = jfammembers;
+        this.filterMembers = this.jfammembers;
       },
       error: err => this.errorMessage = err,
     }); 
   }
+
+  // constructor(private httpUserService: UserService) { }
+  // ngOnInit(): void {
+  //   this.httpUserService.getUsers().subscribe(
+  //     (dafam)=>{this.jfammembers=dafam,
+  //     this.filterMembers=this.jfammembers,
+  //   (err:any)=> console.log(err),
+  // ()=>console.log("all done getting fam")}
+  //   )
+  // // this.httpUserService.getUsers().subscribe(
+  // //   // (data: this.filterMembers)=> this.jfammembers = data
+  // //   (data:fmem[])=>this.jfammembers=fmem
+  // }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();

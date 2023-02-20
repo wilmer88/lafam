@@ -9,15 +9,18 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = 'https://localhost:4200/family';
-  // private userUrl = '';
-
+  private userUrl = 'https://localhost:8080/lafamily';
+  // private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   constructor(private http: HttpClient) { };
 
   getUsers(): Observable<Ifammembers[]> {
+    console.log("getting fam called");
     return this.http.get<Ifammembers[]>(this.userUrl).pipe(
       tap(data => console.log('ALL:', JSON.stringify(data))),
-      catchError(this.handleError));
+      catchError(this.handleError)
+    )
+
+    
 };
 
   private handleError(err: HttpErrorResponse) {

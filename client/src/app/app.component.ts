@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 
     <div class="col">
     <div style="text-align:center" class="content">
-   
-    <coat-users></coat-users>
+   <coat-FamTable></coat-FamTable>
+
     </div>
     </div>
 
