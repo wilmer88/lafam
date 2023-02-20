@@ -1,6 +1,8 @@
 {
-    "/api/family": {
-        "target": "https://mifamily-app.herokuapp.com/lafamily",
-        "secure": "false"
+    "/api/*": {
+        "target": "",
+        "secure": "false",
+        "logLevel":"debug",
+        "changeOrigin":false
     }
 }

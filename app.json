@@ -1,12 +1,9 @@
 {
-  "name": "lafamily-app",
-  "description": "la familia",
+  "name": "",
+  "description": "",
   "keywords": [
-
-    "go",
-    "sample",
-    "example"
+   
   ],
-  "website": "https://git.heroku.com/mifamily-app.git",
-  "repository": "https://git.heroku.com/mifamily-app.git"
+  "website": "",
+  "repository": ""
 }

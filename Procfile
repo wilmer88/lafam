@@ -1,2 +1,2 @@
- web: go run bin/lafam && cd client npm start
-
+web: mypeeps && cd client && npm start
+worker:
