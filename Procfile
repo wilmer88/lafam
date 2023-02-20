@@ -1,2 +1,2 @@
-web: mifamily && cd client && npm start
+web: mifamily-app && cd client && npm start
 worker:
