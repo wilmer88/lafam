@@ -1,2 +1,2 @@
- web: cd client && npm start
- worker: go run bin/lafam
+ web: go run bin/lafam
+ worker: cd client && npm start
