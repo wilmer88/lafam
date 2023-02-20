@@ -50,8 +50,8 @@ export class FamTable implements OnInit, OnDestroy {
   constructor(private httpUserService: UserService) { }
   ngOnInit(): void {
     this.sub = this.httpUserService.getUsers().subscribe({
-      next: (jfammembers) => {
-        this.jfammembers = jfammembers;
+      next: (members) => {
+        this.jfammembers = members;
         this.filterMembers = this.jfammembers;
       },
       error: err => this.errorMessage = err,

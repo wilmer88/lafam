@@ -10,7 +10,7 @@ import { Ifammembers } from './Imembers';
 export class UserService {
 
   // private userUrl = 'https://localhost:8080/lafamily';
-  private userUrl = 'http://mifamily-app.herokuapp.com/lafamily';
+  private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   constructor(private http: HttpClient) { };
 
   getUsers(): Observable<Ifammembers[]> {

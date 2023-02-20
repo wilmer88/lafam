@@ -4,10 +4,8 @@ go 1.20
 
 require (
 	github.com/gin-contrib/cors v1.4.0
-	github.com/gin-contrib/static v0.0.1
 	github.com/gin-gonic/gin v1.8.2
 	github.com/heroku/x v0.0.55
-	github.com/memcachier/mc v2.0.1+incompatible
 	gorm.io/driver/mysql v1.4.7
 	gorm.io/gorm v1.24.5
 )
