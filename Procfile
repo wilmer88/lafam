@@ -1,2 +1,2 @@
-web: mifamily-app && cd client && npm start
-worker:
+web: bin/lafam 
+worker: public/dist

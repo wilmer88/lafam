@@ -1,5 +1,5 @@
 {
-    "/api/*": {
+    "https://mifamily-app.herokuapp.com/*": {
         "target": "",
         "secure": "false",
         "logLevel":"debug",
