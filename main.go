@@ -4,8 +4,10 @@ import (
 	"os"
 	// "crypto/tls"
 	"net/http"
-	"github.com/gin-gonic/gin"
+
 	"github.com/gin-contrib/cors"
+	"github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
 )
 
@@ -48,10 +50,6 @@ func setupRouter() *gin.Engine {
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 	// config.AllowOrigins = []string{"http://localhost:4200"}
-	r.GET("https://mifamily-app.herokuapp.com", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "pong")
-	})
-
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
@@ -59,7 +57,7 @@ func setupRouter() *gin.Engine {
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
-	
+	r.Use(static.Serve("/", static.LocalFile("./public/client",true))) 
 	return r
 }
 
