@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run serve",
-    "build": "",
+    "start": "npm run build && npm run serve",
+    "build": "ng build && server.js",
     "start:prod": "cd ../ && go run main.go",
-    "serve": "node server.js",
+    "serve": "npm run start:prod",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
