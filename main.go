@@ -2,7 +2,7 @@ package main
 
 import (
 	"embed"
-	"net/http"
+	// "net/http"
 	"os"
 
 	// "crypto/tls"
@@ -15,7 +15,7 @@ import (
 )
 
 //go:embed public/*
-var f embed.FS
+// var f embed.FS
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		
