@@ -16,7 +16,9 @@ func main() {
     // })
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
-	http.Handle("/", http.FileServer(http.Dir("./client/dist/client")))
+	// http.Handle("http://localhost:4200/lafamily", http.FileServer(http.Dir("./client/dist/client")))
+	http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./client/dist/client")))
+
 	port := os.Getenv("Port")
 	if port == "" {
 		port = "8080"
@@ -46,6 +48,9 @@ func setupRouter() *gin.Engine {
 	r := gin.Default()
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	// config.AllowOrigins = []string{"http://localhost:4200"}
+
+
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
