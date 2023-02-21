@@ -1,1 +1,1 @@
-web: cd client && npm run build && cd ../ && go build -o bin/lafam && go run ./bin/lafam
+web: cd client && npm start && cd ../ && go build -o bin/lafam 
