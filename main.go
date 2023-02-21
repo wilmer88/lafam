@@ -28,7 +28,7 @@ func main() {
 
 	r := setupRouter()
 	_ = r.Run(":"+port )
-	r.Static("/", "./client/dist")
+	r.Static("/lafamily", "./client/dist")
 
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
