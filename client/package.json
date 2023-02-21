@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng build",
     "build": "",
     "serve": "node server.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
     "watch": "ng build --watch --configuration development", 
-    "heroku-postbuild": "ng build --aot -prod --host 0.0.0.0 --disableHostCheck "
+    "heroku-postbuild": "-prod --host 0.0.0.0 --disableHostCheck "
   },
   "static": {
     "root": "dist/",

@@ -1,12 +1,12 @@
 package main
 
 import (
-	// "embed"
+	"embed"
 
 	"os"
 
 	// "crypto/tls"
-	// "net/http"
+	"net/http"
 
 	"github.com/gin-contrib/cors"
 	// "github.com/gin-contrib/static"
@@ -17,8 +17,8 @@ import (
 
 
 
-
-// var f embed.FS
+//go:embed public/*
+var f embed.FS
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		
@@ -38,11 +38,12 @@ func main() {
 	// r := setupRouter()
 	
 	// r.Static( "/public", "./client/dist" )
-	// r.StaticFS( "fs", http.FileSystem(http.FS(f)))
+
 
 	r := gin.Default()
+	r.StaticFS( "fs", http.FileSystem(http.FS(f)))
 	r.GET("/family", func (c *gin.Context)  {
-		c.File("./public/client.html")	
+		c.File("./client")	
 	})
 	_ = r.Run(":"+port )
 	// tlsConfig := &tls.Config{
