@@ -8,6 +8,8 @@
       "start": "cd client && npm start"  
     },
     "dependencies": {
-      "express": "^4.17.1"
+      "express": "^4.17.1",
+      "@angular/compiler-cli": "^15.1.0",
+      "@angular/cli": "~15.1.5"
     }
   }
