@@ -43,7 +43,7 @@ func main() {
 	r := gin.Default()
 	r.StaticFS( "fs", http.FileSystem(http.FS(f)))
 	r.GET("/family", func (c *gin.Context)  {
-		c.File("./client/dist/client/index.html")	
+		c.File("./public/dist/client/index.html")	
 	})
 	_ = r.Run(":"+port )
 	// tlsConfig := &tls.Config{
