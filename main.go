@@ -16,7 +16,7 @@ func main() {
     // })
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
-
+	http.Handle("/", http.FileServer(http.Dir("./client/dist/client")))
 	port := os.Getenv("Port")
 	if port == "" {
 		port = "8080"
