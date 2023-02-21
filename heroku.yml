@@ -4,6 +4,7 @@ build:
   languages:
     - go
     - typescript
+    - node
 
 run:
-  web: github.com
+  web: mifamily-app

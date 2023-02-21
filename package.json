@@ -7,5 +7,7 @@
     "scripts": {
       "start": "cd client && npm start"  
     },
-    "dependencies": {}
+    "dependencies": {
+      "express": "^4.17.1"
+    }
   }
