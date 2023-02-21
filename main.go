@@ -14,7 +14,7 @@ import (
 	"github.com/wilmer88/lafam/controllers"
 )
 
-//go:embed public/*
+
 // var f embed.FS
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
