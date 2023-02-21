@@ -1,1 +1,1 @@
-web: cd public && npm run start && cd ../lafam go build && ./client
+web: cd public && npm run start && cd ../ && go run main.go
