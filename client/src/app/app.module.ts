@@ -10,17 +10,21 @@ import { StarComponent } from './shared/star.component';
 // import { EventsComponent } from './events/Events.component';
 import { RouterModule } from '@angular/router';
 import { EventsComponent1 } from './events1/Events1.component';
+import { LooknavComponent } from './looknav/looknav.component';
 // import { EventsCard } from './events/events.component';
 
 
 
 @NgModule({
+
+
   declarations: [
     AppComponent,
     // EventsCard,
     StarComponent,
     FamTable,
     EventsComponent1,
+    LooknavComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +32,9 @@ import { EventsComponent1 } from './events1/Events1.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path:"famTable", component: FamTable},
-      {path: "events", component: EventsComponent1}
+      {path:"lafamily", component: FamTable},
+      {path: "events", component: EventsComponent1},
+      {path: '**', component: FamTable},
     ])
   ],
   providers: [

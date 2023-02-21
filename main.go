@@ -1,7 +1,10 @@
 package main
 
 import (
+	"embed"
+	"net/http"
 	"os"
+
 	// "crypto/tls"
 	// "net/http"
 
@@ -11,6 +14,8 @@ import (
 	"github.com/wilmer88/lafam/controllers"
 )
 
+//go:embed public/*
+var f embed.FS
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		
@@ -28,7 +33,9 @@ func main() {
 
 	r := setupRouter()
 	_ = r.Run(":"+port )
-	r.Static("/lafamily", "./client/dist")
+	r.Static( "/public", "./client/dist" )
+	// r.StaticFS( "fs", http.FileSystem(http.FS(f)))
+
 
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
