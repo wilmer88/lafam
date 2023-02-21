@@ -43,7 +43,7 @@ func main() {
 	r := gin.Default()
 	r.StaticFS( "fs", http.FileSystem(http.FS(f)))
 	r.GET("/family", func (c *gin.Context)  {
-		c.File("./client")	
+		c.File("./client/dist/client/index.html")	
 	})
 	_ = r.Run(":"+port )
 	// tlsConfig := &tls.Config{
@@ -70,8 +70,6 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
-
-
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
