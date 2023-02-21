@@ -1,1 +1,1 @@
-web: cd public && npm run start && cd ../ && go run main.go
+web: cd public && cd client && npm run start && cd ../ && ../ && go run main.go
