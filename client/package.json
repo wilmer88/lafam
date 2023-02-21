@@ -4,8 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm install && npm run build",
-   
-    "build": "ng build",
+    "build": "ng build --prod && ng serve -o",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "e2e": "ng e2e",
