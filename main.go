@@ -19,7 +19,7 @@ func main() {
 	// http.Handle("http://localhost:4200/lafamily", http.FileServer(http.Dir("./client/dist/client")))
 	http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./public/client/dist")))
 
-	port := os.Getenv("Port")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
