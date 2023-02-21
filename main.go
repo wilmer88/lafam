@@ -17,7 +17,6 @@ func main() {
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
 
-
 	port := os.Getenv("Port")
 	if port == "" {
 		port = "8080"
