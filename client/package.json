@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "test": "ng test",
     "watch": "ng build --watch --configuration development", 
-    "heroku-postbuild": "ng build --aot -prod"
+    "heroku-postbuild": "ng build --aot -prod --host 0.0.0.0 --disableHostCheck "
   },
   "static": {
     "root": "dist/",
