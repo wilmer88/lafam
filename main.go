@@ -11,6 +11,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		
         w.Write([]byte("Hello, TLS!"))
     })
 
@@ -38,13 +39,14 @@ func main() {
 	if err := server.ListenAndServeTLS("path/to/cert.pem", "path/to/key.pem"); err != nil {
 		panic(err)
 	}
+
 }
 
 func setupRouter() *gin.Engine {
-
+	
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://localhost:4200"}
+	config.AllowOrigins = []string{"http://localhost:4200"}
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
@@ -52,7 +54,7 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/lafamily", userRepo.GetUsers)
+	r.GET("/", userRepo.GetUsers)
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
@@ -60,7 +62,6 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-
-
-
-
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	}
