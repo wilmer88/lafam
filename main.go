@@ -17,7 +17,7 @@ func main() {
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
 	// http.Handle("http://localhost:4200/lafamily", http.FileServer(http.Dir("./client/dist/client")))
-	http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./client/dist/client")))
+	// http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./client/dist/client")))
 
 	port := os.Getenv("Port")
 	if port == "" {
