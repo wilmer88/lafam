@@ -4,13 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build",
-    "build": "",
     "serve": "node server.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
-    "watch": "ng build --watch --configuration development", 
-    "heroku-postbuild": "-prod --host 0.0.0.0 --disableHostCheck "
+    "watch": "ng build --watch --configuration development"
   },
   "static": {
     "root": "dist/",
