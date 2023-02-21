@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 	// "crypto/tls"
-	"net/http"
+	// "net/http"
 
 	"github.com/gin-contrib/cors"
 	// "github.com/gin-contrib/static"
@@ -19,7 +19,7 @@ func main() {
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
 	// http.Handle("http://localhost:4200/lafamily", http.FileServer(http.Dir("./client/dist/client")))
-	http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./public/client/dist")))
+	// http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./public/client/dist")))
 
 	port := os.Getenv("PORT")
 	if port == "" {
