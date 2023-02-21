@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-contrib/cors"
-	"github.com/gin-contrib/static"
+	// "github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
 )
@@ -57,7 +57,8 @@ func setupRouter() *gin.Engine {
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
-	r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true))) 
+	// r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true))) 
+	r.Static("/", "./client/dist")
 	return r
 }
 
