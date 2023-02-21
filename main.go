@@ -48,7 +48,7 @@ func setupRouter() *gin.Engine {
 	
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/lafamily"}
 	// config.AllowOrigins = []string{"http://localhost:4200"}
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
@@ -57,7 +57,7 @@ func setupRouter() *gin.Engine {
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
-	r.Use(static.Serve("/", static.LocalFile("./public/client",true))) 
+	r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true))) 
 	return r
 }
 
