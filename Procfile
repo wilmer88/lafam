@@ -1,2 +1,2 @@
-web: bin/lafam 
-worker: public/dist
+web: bin/lafam
+web: public/dist

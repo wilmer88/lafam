@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng serve",
-    "start": "ng serve",
-    "serve":"",
+    "start": "ng run build",
+    "serve":"npm install && npm run build",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
