@@ -1,7 +1,6 @@
-
 import { HttpClient, HttpErrorResponse, } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError,of } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Ifammembers } from './Imembers';
 @Injectable({
   providedIn: 'root',
@@ -9,8 +8,8 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  // private userUrl = 'https://localhost:8080/lafamily';
-  private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
+  private userUrl = 'https://localhost:8080/lafamily';
+ 
   constructor(private http: HttpClient) { };
 
   getUsers(): Observable<Ifammembers[]> {
@@ -20,10 +19,22 @@ export class UserService {
     );
 }
 
+private handleError(err: HttpErrorResponse) {
+  let errorMassage = '';
+  if (err.error instanceof ErrorEvent) {
+    errorMassage = `An error occurred: ${err.error.message}`;
+  } else{
+    errorMassage = `Server returned code: ${err.status}, error message is: ${err.message}`
+  };
+  console.error(errorMassage);
+  return throwError(() => errorMassage)
+};
+
+}
 
 
 
-
+ // private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   // constructor(private http: HttpClient) { };
 
   // getUsers(): Observable<Ifammembers[]> {
@@ -47,16 +58,4 @@ export class UserService {
 // };
 
 
-  private handleError(err: HttpErrorResponse) {
-    let errorMassage = '';
-    if (err.error instanceof ErrorEvent) {
-      errorMassage = `An error occurred: ${err.error.message}`;
-    } else{
-      errorMassage = `Server returned code: ${err.status}, error message is: ${err.message}`
-    };
-    console.error(errorMassage);
-    return throwError(() => errorMassage)
-  };
-
-}
 

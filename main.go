@@ -2,31 +2,49 @@ package main
 
 import (
 	"os"
-	"github.com/wilmer88/lafam/controllers"
-
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
-
-	// "gorm-test/controllers"
+	"crypto/tls"
 	"net/http"
+	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
+	"github.com/wilmer88/lafam/controllers"
 )
 
 func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("Hello, TLS!"))
+    })
+
+	http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
+
 
 	port := os.Getenv("Port")
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 	}
 
 	r := setupRouter()
-	_ = r.Run(":8080" )
+	_ = r.Run(":"+port )
+
+	tlsConfig := &tls.Config{
+		MinVersion: tls.VersionTLS12,
+	}
+	
+	server := &http.Server{
+		Addr:      ":8080",
+		TLSConfig: tlsConfig,
+		Handler:   r,
+	}
+	
+	if err := server.ListenAndServeTLS("path/to/cert.pem", "path/to/key.pem"); err != nil {
+		panic(err)
+	}
 }
 
 func setupRouter() *gin.Engine {
 
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	config.AllowOrigins = []string{"https://localhost:4200"}
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
@@ -39,9 +57,10 @@ func setupRouter() *gin.Engine {
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
 	
-
 	return r
 }
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-	}
+
+
+
+
+

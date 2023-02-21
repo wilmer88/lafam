@@ -1,5 +1,5 @@
 {
-    "https://mifamily-app.herokuapp.com/*": {
+    "https://localhost:8080/*": {
         "target": "",
         "secure": "false",
         "logLevel":"debug",
