@@ -8,7 +8,7 @@ import { Ifammembers } from './Imembers';
 
 export class UserService {
 
-  private userUrl = 'https://localhost:8080';
+  private userUrl = 'http://localhost:8080';
  
   constructor(private http: HttpClient) { };
 
