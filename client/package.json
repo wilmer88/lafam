@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
-    "postinstall": "chmod +x ../bin/lafam",
     "heroku-postbuild": "ng build --aot -prod"
   },
   "static": {
