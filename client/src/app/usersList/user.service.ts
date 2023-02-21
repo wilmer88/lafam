@@ -31,8 +31,6 @@ private handleError(err: HttpErrorResponse) {
 //   console.error(errorMassage);
 //   return throwError(() => errorMassage)
 // }
-
-
     if (err.status === 0) {
     // A client-side or network error occurred. Handle it accordingly.
     console.error('An error occurred:', err.error);
@@ -47,9 +45,6 @@ private handleError(err: HttpErrorResponse) {
 
 }
 }
-
-
-
  // private userUrl = 'https://mifamily-app.herokuapp.com/lafamily';
   // constructor(private http: HttpClient) { };
 
