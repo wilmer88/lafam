@@ -1,22 +1,16 @@
-import { Injectable } from "@angular/core";
+// import { Injectable } from "@angular/core";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ApiService {
-  private port?: string;
+// @Injectable()
+// export class ApiService {
+//   private port: string;
 
-  setPort(port: string) {
-    this.port = port;
-  }
+//   constructor() {
+//     this.port = process.env['PORT'] || '8080'; // Set the port based on the environment
+//   }
 
-  getBaseUrl() {
-    if (this.port) {
-      return `https://your-app-name.herokuapp.com:${this.port}/api`;
-    } else {
-      return `https://your-app-name.herokuapp.com/api`;
-    }
-  }
+//   getBaseUrl() {
+//     return `http://localhost:${this.port}`;
+//   }
 
-  // ...
-}
+//   // ...
+// }

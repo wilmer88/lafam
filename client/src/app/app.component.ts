@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+// import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'CoatnCode-root',
@@ -30,11 +30,9 @@ export class AppComponent {
   title = 'code and code';
   baseUrl = '';
 
-  constructor(private apiService: ApiService) {}
+  // constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
-    this.baseUrl = this.apiService.getBaseUrl();
-  }
+
 }
 
 
