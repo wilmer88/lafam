@@ -28,6 +28,7 @@ func main() {
 
 	r := setupRouter()
 	_ = r.Run(":"+port )
+	r.Static("/", "./client/dist")
 
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
@@ -58,7 +59,7 @@ func setupRouter() *gin.Engine {
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
 	// r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true))) 
-	r.Static("/", "./client/dist")
+	
 	return r
 }
 
