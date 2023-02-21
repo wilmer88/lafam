@@ -2,7 +2,7 @@ package main
 
 import (
 	// "embed"
-	// "net/http"
+
 	"os"
 
 	// "crypto/tls"
@@ -13,6 +13,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
 )
+
+
+
 
 
 // var f embed.FS
@@ -31,12 +34,17 @@ func main() {
 		port = "8080"
 	}
 
-	r := setupRouter()
-	_ = r.Run(":"+port )
-	r.Static( "/public", "./client/dist" )
+
+	// r := setupRouter()
+	
+	// r.Static( "/public", "./client/dist" )
 	// r.StaticFS( "fs", http.FileSystem(http.FS(f)))
 
-
+	r := gin.Default()
+	r.GET("/family", func (c *gin.Context)  {
+		c.File("./public/client.html")	
+	})
+	_ = r.Run(":"+port )
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
 	// }
@@ -61,7 +69,8 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/lafamily", userRepo.GetUsers)
+
+
 	r.GET("/lafamily/:id", userRepo.GetUser)
 	r.PUT("/lafamily/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
