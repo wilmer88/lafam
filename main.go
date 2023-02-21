@@ -40,7 +40,6 @@ func main() {
 	// if err := server.ListenAndServeTLS("path/to/cert.pem", "path/to/key.pem"); err != nil {
 	// 	panic(err)
 	// }
-
 }
 
 func setupRouter() *gin.Engine {
@@ -49,8 +48,6 @@ func setupRouter() *gin.Engine {
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 	// config.AllowOrigins = []string{"http://localhost:4200"}
-
-
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
