@@ -5,7 +5,7 @@
       "node": "16.14.2"
     },
     "scripts": {
-      "start": "go run main.go"
+      "start": "cd client && ng build && cd ../ && go run main.go"
     },
     "dependencies": {
       "express": "^4.18.2",
