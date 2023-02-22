@@ -12,7 +12,6 @@
       "serve": "node server.js",
       "lint": "ng lint",
       "e2e": "ng e2e",
- 
      "test": "ng test"
     },
     "dependencies": {
