@@ -1,2 +1,1 @@
-web: ./main
-web: cd client && npm start $PORT
+web: cd client && npm start $PORT && cd ../ && go run main.go
