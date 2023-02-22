@@ -12,9 +12,8 @@
       "serve": "node server.js",
       "lint": "ng lint",
       "e2e": "ng e2e",
-      "test": "ng test",
-      "postinstall": "chmod +x ./public/client"
-  
+ 
+     "test": "ng test"
     },
     "dependencies": {
       "express": "^4.18.2",
