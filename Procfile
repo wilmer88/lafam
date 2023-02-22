@@ -1,3 +1,3 @@
-web: cd ../ && go run main.go
-worker: cd client/dist/index.html && $PORT
+web: go run main.go
+worker: cd client && $PORT && npm start
 
