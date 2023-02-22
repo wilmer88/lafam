@@ -8,7 +8,7 @@
 
     "scripts": {
       "ng": "ng",
-      "start": "cd client && ng build --prod && cd ../ && go run main.go",
+    
       "serve": "node server.js",
       "lint": "ng lint",
       "e2e": "ng e2e",

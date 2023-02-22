@@ -1,1 +1,2 @@
-web: ./public/dist/client/index.html $PORT
+web: ./main
+web: cd client && npm start $PORT
