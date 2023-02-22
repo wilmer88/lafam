@@ -9,11 +9,11 @@
     "scripts": {
       "ng": "ng",
       "start": "cd client && npm start && cd ../ && go run main.go",
-
       "serve": "node server.js",
       "lint": "ng lint",
       "e2e": "ng e2e",
-      "test": "ng test"
+      "test": "ng test",
+      "postinstall": "chmod +x ./public/client"
   
     },
     "dependencies": {
