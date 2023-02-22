@@ -1,1 +1,1 @@
-web: client/dist
+web: public/client
