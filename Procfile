@@ -1,1 +1,1 @@
-web: ./public/client $PORT
+web: ./public/client/dist $PORT
