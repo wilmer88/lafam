@@ -39,7 +39,7 @@ func main() {
 
 	r := setupRouter()
 	// r.StaticFileFS( "http:localhost:8080", "./public/client/dist/index.html" )
-	r.Static( "/", "./public/dist/client/index.html")
+	r.Static( "/lafamily", "./public/dist/client/index.html")
 	// r.GET("/lafamily", func (c *gin.Context)  {
 		// c.File(http.StatusOK, "./public/dist/client/index.html")	
 	// 	c.String(http.StatusOK, "working")	
@@ -66,8 +66,8 @@ func setupRouter()*gin.Engine {
 	
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	// config.AllowOrigins = []string{"http://localhost:4200"}
+	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	config.AllowOrigins = []string{"http://localhost:4200"}
 	r.Use(cors.New(config))
 
 	// userRepo := controllers.New()
