@@ -5,3 +5,4 @@ Please do not edit.
 See https://github.com/tools/godep for more information.
 
   "start": "cd client && ng build && cd ../ && go run main.go",
+     "outputPath": "dist/client & ../public/dist/client",
