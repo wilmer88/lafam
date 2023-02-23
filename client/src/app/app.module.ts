@@ -34,7 +34,7 @@ import { LooknavComponent } from './looknav/looknav.component';
     RouterModule.forRoot([
       {path:"lafamily", component: FamTable},
       {path: "events", component: EventsComponent1},
-      {path: '**', component: FamTable},
+      // {path: '', component: FamTable},
     ])
   ],
   providers: [

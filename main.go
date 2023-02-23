@@ -1,24 +1,21 @@
 package main
 
 import (
-	"embed"
+	// "embed"
+	"log"
 
 	"os"
 
 	// "crypto/tls"
-	"net/http"
+	// "net/http"
 
 	"github.com/gin-contrib/cors"
 	// "github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/wilmer88/lafam/controllers"
+	// "github.com/wilmer88/lafam/controllers"
 )
 
 
-
-
-//go:embed public/*
-var f embed.FS
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		
@@ -26,7 +23,7 @@ func main() {
     // })
 
 	// http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
-	// http.Handle("http://localhost:4200/lafamily", http.FileServer(http.Dir("./client/dist/client")))
+	// http.Handle("http://localhost:8080", http.FileServer(http.Dir("./client/dist/client")))
 	// http.Handle("https://mifamily-app.herokuapp.com", http.FileServer(http.Dir("./public/client/dist")))
 
 	port := os.Getenv("PORT")
@@ -40,12 +37,16 @@ func main() {
 	// r.Static( "/public", "./client/dist" )
 
 
-	r := gin.Default()
-	r.StaticFS( "fs", http.FileSystem(http.FS(f)))
-	r.GET("/family", func (c *gin.Context)  {
-		c.File("./public/dist/client/index.html")	
-	})
-	_ = r.Run(":"+port )
+	r := setupRouter()
+	// r.StaticFileFS( "http:localhost:8080", "./public/client/dist/index.html" )
+	r.Static( "/", "./public/dist/client/index.html")
+	// r.GET("/lafamily", func (c *gin.Context)  {
+		// c.File(http.StatusOK, "./public/dist/client/index.html")	
+	// 	c.String(http.StatusOK, "working")	
+
+	// })
+	
+    log.Fatal( r.Run(":"+port ))
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
 	// }
@@ -61,18 +62,19 @@ func main() {
 	// }
 }
 
-func setupRouter() *gin.Engine {
+func setupRouter()*gin.Engine {
 	
 	r := gin.Default()
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 	// config.AllowOrigins = []string{"http://localhost:4200"}
 	r.Use(cors.New(config))
-	userRepo := controllers.New()
-	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/lafamily/:id", userRepo.GetUser)
-	r.PUT("/lafamily/:id", userRepo.UpdateUser)
-	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
+
+	// userRepo := controllers.New()
+	// r.POST("/lafamily", userRepo.CreateUser)
+	// r.Static(userRepo.GetUser,"/lafamily/:id" )
+	// r.PUT("/lafamily/:id", userRepo.UpdateUser)
+	// r.DELETE("/lafamily/:id", userRepo.DeleteUser)
 	// r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true))) 
 	
 	return r
