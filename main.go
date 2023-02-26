@@ -1,12 +1,12 @@
 package main
 
 import (
-	"embed"
+	// "embed"
 
 	"os"
 
 	// "crypto/tls"
-	"net/http"
+	// "net/http"
 
 	// "github.com/gin-contrib/cors"
 	// "github.com/gin-contrib/static"
@@ -15,7 +15,7 @@ import (
 	"github.com/wilmer88/lafam/controllers"
 )
 
-var f embed.FS
+
 
 func main() {
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -32,15 +32,16 @@ func main() {
 		port = "8080"
 	}
 
-	// r := setupRouter()
+
 
 	// r.Static( "/public", "./client/dist" )
 
-	r := gin.Default()
-	r.StaticFS("fs", http.FileSystem(http.FS(f)))
-	r.GET("/family", func(c *gin.Context) {
-		c.File("./public/dist/client/index.html")
-	})
+	// r := gin.Default()
+	// r.StaticFS("fs", http.FileSystem(http.FS(f)))
+	// r.GET("localhost:8080/lafamily", func(c *gin.Context) {
+	// 	c.File("./public/dist/client/index.html")
+	// })
+	r := setupRouter()
 	_ = r.Run(":" + port)
 	// tlsConfig := &tls.Config{
 	// 	MinVersion: tls.VersionTLS12,
@@ -61,8 +62,8 @@ func setupRouter() *gin.Engine {
 
 	r := gin.Default()
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	// config.AllowOrigins = []string{"http://localhost:4200"}
+	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	config.AllowOrigins = []string{"http://localhost:8080/lafamily"}
 	r.Use(cors.New(config))
 	userRepo := controllers.New()
 	r.POST("/lafamily", userRepo.CreateUser)
