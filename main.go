@@ -62,8 +62,8 @@ func setupRouter() *gin.Engine {
 	r := gin.Default();
 	r.Static("/", "./public");
 	config := cors.DefaultConfig();
-	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	config.AllowOrigins = []string{"http://localhost:8080/lafamily"};
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	// config.AllowOrigins = []string{"http://localhost:8080/lafamily"};
 	r.Use(cors.New(config));
 	userRepo := controllers.New();
 	r.POST("/lafamily", userRepo.CreateUser);
