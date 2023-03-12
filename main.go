@@ -59,18 +59,18 @@ func main() {
 }
 
 func setupRouter() *gin.Engine {
-
-	r := gin.Default()
-	config := cors.DefaultConfig()
+	r := gin.Default();
+	r.Static("/", "./public");
+	config := cors.DefaultConfig();
 	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	config.AllowOrigins = []string{"http://localhost:8080/lafamily"}
-	r.Use(cors.New(config))
-	userRepo := controllers.New()
-	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/lafamily/:id", userRepo.GetUser)
-	r.PUT("/lafamily/:id", userRepo.UpdateUser)
-	r.DELETE("/lafamily/:id", userRepo.DeleteUser)
+	config.AllowOrigins = []string{"http://localhost:8080/lafamily"};
+	r.Use(cors.New(config));
+	userRepo := controllers.New();
+	r.POST("/lafamily", userRepo.CreateUser);
+	r.GET("/lafamily/:id", userRepo.GetUser);
+	r.PUT("/lafamily/:id", userRepo.UpdateUser);
+	r.DELETE("/lafamily/:id", userRepo.DeleteUser);
 	// r.Use(static.Serve("https://mifamily-app.herokuapp.com/lafamily", static.LocalFile("./public/client",true)))
 
-	return r
+	return r;
 }

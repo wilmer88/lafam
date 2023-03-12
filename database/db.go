@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"gorm.io/driver/mysql"
-	
+
 	"gorm.io/gorm"
 )
 
@@ -22,9 +22,9 @@ func InitDb() *gorm.DB {
 }
 
 func connectDB() *gorm.DB {
-	ConnString := "yg44om958iie64y0:r77jpsqasz2v392w@tcp(qz8si2yulh3i7gl3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306)/qo08agkjf6rg2k63?parseTime=true&loc=Local"
+	ConnString := "kf73j6z7p15wtbvi:wbjk42nktgadxa6k@tcp(en1ehf30yom7txe7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306)/v0dnypwxmmzq9ftq?parseTime=true&loc=Local"
 	var err error
-	dsn :=  ConnString
+	dsn := ConnString
 	fmt.Println("dsn :is workig ", dsn)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
