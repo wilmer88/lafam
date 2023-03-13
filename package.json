@@ -9,7 +9,7 @@
     "scripts": {
 
         
-        "prestart": "go build",
+        "prestart": "go build"
        
     },
     "dependencies": {
