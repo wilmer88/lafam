@@ -8,10 +8,9 @@
 
     "scripts": {
 
-        "start": "ng serve",
         "build": "ng build --prod",
         "heroku-postbuild": "npm install --prefix ./client && npm run build --prefix ./client && cp -R ./client/dist/. ./public",
-        "prestart": "cd server && go build",
+        "prestart": "go build",
         "test": "ng test"
     },
     "dependencies": {
