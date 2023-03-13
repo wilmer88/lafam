@@ -33,8 +33,8 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.New(config))
 
 	// Set up static file serving
-	// static := r.Group("/static")
-	// static.Static("/", "./client/dist/index.html")
+	static := r.Group("/static")
+	static.Static("/", "./client/dist/index.html")
 
 	// Set up dynamic routes
 	userRepo := controllers.New()
