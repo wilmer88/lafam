@@ -27,14 +27,14 @@ func setupRouter() *gin.Engine {
 	// Set up CORS
 	config := cors.DefaultConfig()
 	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	config.AllowOrigins = []string{"http://localhost:8080/lafamily"}
-	// config.AllowOrigins = []string{"https://localhost:4200/lafamily"}
+	// config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
+	config.AllowOrigins = []string{"http://localhost:4200"}
 
 	r.Use(cors.New(config))
 
 	// Set up static file serving
-	static := r.Group("/static")
-	static.Static("/", "./client/dist/index.html")
+	// static := r.Group("/static")
+	// static.Static("/", "./client/dist/index.html")
 
 	// Set up dynamic routes
 	userRepo := controllers.New()
