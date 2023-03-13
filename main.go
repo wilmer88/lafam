@@ -33,7 +33,7 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.New(config))
 
 	// Set up static file serving
-	static := r.Group("/static")
+	static := r.Group("/")
 	// static.Static("/", "./client/dist/index.html")
 	static.Static("/static", "./client/dist")
 	// static.Static("/", "./public/dist/client/index.html")
