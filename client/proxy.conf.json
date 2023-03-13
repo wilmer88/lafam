@@ -1,8 +1,0 @@
-{
-    "https://localhost:8080/*": {
-        "target": "",
-        "secure": "false",
-        "logLevel":"debug",
-        "changeOrigin":false
-    }
-}
