@@ -7,11 +7,10 @@
  
 
     "scripts": {
-      "start": "cd ./client && npm run build",
-  
+
         
         "prestart": "go build",
-        "test": "ng test"
+       
     },
     "dependencies": {
       "express": "^4.18.2",
