@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Fammember struct {
+type Fammembers struct {
 	gorm.Model
 	Firstname  string
 	Happiness int
@@ -13,7 +13,7 @@ type Fammember struct {
 };
 
 //create a user
-func CreateUser(db *gorm.DB, User *Fammember) (err error) {
+func CreateUser(db *gorm.DB, User *Fammembers) (err error) {
 	err = db.Create(User).Error
 	if err != nil {
 		return err
@@ -22,14 +22,14 @@ func CreateUser(db *gorm.DB, User *Fammember) (err error) {
 }
 
 //get users
-func GetUsers(db *gorm.DB, User *[]Fammember) (err error) {
+func GetUsers(db *gorm.DB, User *[]Fammembers) (err error) {
 	err = db.Find(User).Error;
 	if err != nil {
 		return err;
 	};	return nil}
 
 //get user by id
-func GetUser(db *gorm.DB, User *Fammember, id int) (err error) {
+func GetUser(db *gorm.DB, User *Fammembers, id int) (err error) {
 	err = db.Where("id = ?", id).First(User).Error
 	if err != nil {
 		return err
@@ -38,13 +38,13 @@ func GetUser(db *gorm.DB, User *Fammember, id int) (err error) {
 }
 
 //update user
-func UpdateUser(db *gorm.DB, User *Fammember) (err error) {
+func UpdateUser(db *gorm.DB, User *Fammembers) (err error) {
 	db.Save(User)
 	return nil
 }
 
 //delete user
-func DeleteUser(db *gorm.DB, User *Fammember, id int) (err error) {
+func DeleteUser(db *gorm.DB, User *Fammembers, id int) (err error) {
 	db.Where("id = ?", id).Delete(User)
 	return nil
 }

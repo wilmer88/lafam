@@ -21,26 +21,28 @@ func main() {
 }
 
 func setupRouter() *gin.Engine {
-    gin.SetMode(gin.DebugMode)
-    r := gin.Default()
+	// gin.SetMode(gin.DebugMode)
+	r := gin.Default()
 
-    // Set up CORS
-    config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-    // config.AllowOrigins = []string{"http://localhost:8080/lafamily"}
-    r.Use(cors.New(config))
+	// Set up CORS
+	config := cors.DefaultConfig()
+	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
+	config.AllowOrigins = []string{"http://localhost:8080/lafamily"}
+	// config.AllowOrigins = []string{"https://localhost:4200/lafamily"}
 
-    // Set up static file serving
-    static := r.Group("/static")
-    static.Static("/", "./public")
+	r.Use(cors.New(config))
 
-    // Set up dynamic routes
-    userRepo := controllers.New()
-    r.POST("/lafamily", userRepo.CreateUser)
-    r.GET("/lafamily", userRepo.GetUser)
-    r.GET("/lafamily/user/:id", userRepo.GetUser)
-    r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
-    r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
+	// Set up static file serving
+	static := r.Group("/static")
+	static.Static("/", "./client/dist/index.html")
 
-    return r
+	// Set up dynamic routes
+	userRepo := controllers.New()
+	r.POST("/lafamily", userRepo.CreateUser)
+	r.GET("/lafamily", userRepo.GetUsers)
+	r.GET("/lafamily/user/:id", userRepo.GetUser)
+	r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
+	r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
+
+	return r
 }

@@ -1,0 +1,24 @@
+{
+    "Firstname": "wilmer",
+    "Happiness": 2,
+    "Urlstr": "assets/images/wilmer.jpg"
+}
+
+DROP DATABASE IF EXISTS v0dnypwxmmzq9ftq;
+CREATE DATABASE v0dnypwxmmzq9ftq;
+USE v0dnypwxmmzq9ftq;
+SELECT * FROM fammember;
+ALTER TABLE fammember
+DROP COLUMN DapartmentName;
+DROP TABLE fammember;
+
+
+CREATE TABLE fammember (
+ID int,
+firstName char (255),
+happiness int,
+urlstr char (255)
+);
+
+INSERT INTO fammember
+VALUES (0, "wilmer", 4,"assets/images/wilmer.jpg" );

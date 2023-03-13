@@ -24,7 +24,7 @@ type Familia struct {
 
 func New() *Familia {
 	db := database.InitDb()
-if err := db.AutoMigrate(&models.Fammember{}); err != nil {
+if err := db.AutoMigrate(&models.Fammembers{}); err != nil {
 	log.Fatalf("error acured during database migrate: %s", err.Error())
 }
 	return &Familia{Db: db}
@@ -32,7 +32,7 @@ if err := db.AutoMigrate(&models.Fammember{}); err != nil {
 
 //create user
 func (repository *Familia) CreateUser(c *gin.Context) {
-	var member models.Fammember
+	var member models.Fammembers
 	if err := c.ShouldBindJSON(&member); err != nil {
 		log.Fatalf("error when ShuldBindJson: %s", err.Error())
 	}
@@ -48,7 +48,7 @@ func (repository *Familia) CreateUser(c *gin.Context) {
 
 //get users
 func (tabla *Familia) GetUsers(c *gin.Context) {
-	var member []models.Fammember;
+	var member []models.Fammembers;
 	err := models.GetUsers(tabla.Db, &member);
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
@@ -61,7 +61,7 @@ func (tabla *Familia) GetUsers(c *gin.Context) {
 //get user by id
 func (repository *Familia) GetUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
-	var member models.Fammember
+	var member models.Fammembers
 	err := models.GetUser(repository.Db, &member, id)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -77,7 +77,7 @@ func (repository *Familia) GetUser(c *gin.Context) {
 
 // update user
 func (repository *Familia) UpdateUser(c *gin.Context) {
-	var member models.Fammember
+	var member models.Fammembers
 	id, _ := strconv.Atoi(c.Param("id"))
 	err := models.GetUser(repository.Db, &member, id)
 	if err != nil {
@@ -104,7 +104,7 @@ func (repository *Familia) UpdateUser(c *gin.Context) {
 
 // delete user
 func (repository *Familia) DeleteUser(c *gin.Context) {
-	var member models.Fammember
+	var member models.Fammembers
 	id, _ := strconv.Atoi(c.Param("id"))
 	err := models.DeleteUser(repository.Db, &member, id)
 	if err != nil {
