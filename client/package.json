@@ -5,6 +5,7 @@
     "ng": "ng",
     "build": "ng build  --configuration production",
     "serve": "node server.js",
+    "heroku-postbuild": "npm install --prefix ./client && npm run build --prefix ./client && cp -R ./client/dist/. ./public",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "e2e": "ng e2e",
