@@ -10,7 +10,7 @@ export class UserService {
 
   // private userUrl = 'https://localhost:8080/lafamily';
   
-  private userUrl = '/lafamily';
+  private userUrl = '/';
   // private userUrl = 'https://localhost:4200/lafamily';
 
 
