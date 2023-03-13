@@ -34,8 +34,8 @@ func setupRouter() *gin.Engine {
 
 	// Set up static file serving
 	static := r.Group("/static")
-	// static.Static("/", "./client/dist/index.html")
-	static.Static("/", "./public/dist/client/index.html")
+	static.Static("/", "./client/dist/index.html")
+	// static.Static("/", "./public/dist/client/index.html")
 
 
 	// Set up dynamic routes
