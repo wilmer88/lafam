@@ -16,7 +16,7 @@
       "lint": "ng lint",
       "e2e": "ng e2e",
      "test": "ng test",
-     "postinstall":  "&& ../ && go run main.go"
+     "postinstall":  "cd .. && go run main.go"
     },
     "dependencies": {
       "express": "^4.18.2",
