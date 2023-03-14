@@ -22,8 +22,8 @@ func main() {
     r := setupRouter()
 
     // Create a reverse proxy for requests to the Angular Compiler CLI WebSocket server
-    wsTarget, _ := url.Parse("https://mifamily-app.herokuapp.com")
-    // wsTarget, _ := url.Parse("http://localhost:5000")
+    // wsTarget, _ := url.Parse("https://mifamily-app.herokuapp.com")
+    wsTarget, _ := url.Parse("http://localhost:5000")
     wsProxy := httputil.NewSingleHostReverseProxy(wsTarget)
 
     // Add a handler for requests to /ngc-cli-ws that passes the request through to the WebSocket server
@@ -47,13 +47,13 @@ func setupRouter() *gin.Engine {
     r.Use(cors.New(config))
 
     // Set up static file serving
-    distDir := filepath.Join(".", "dist")
+    distDir := filepath.Join(".", "public/dist/public")
     r.StaticFile("/index.html", filepath.Join(distDir, "index.html"))
 
     // Set up dynamic routes
     userRepo := controllers.New()
     r.POST("/lafamily", userRepo.CreateUser)
-    r.GET("/lafamily/users", userRepo.GetUsers)
+    r.GET("/", userRepo.GetUsers)
     r.GET("/lafamily/user/:id", userRepo.GetUser)
     r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
     r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)

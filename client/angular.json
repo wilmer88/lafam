@@ -68,7 +68,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "host": "https://dashboard.heroku.com/apps/mifamily-app",
             "browserTarget": "client:build",
             "proxyConfig": "proxy.config.json"
           },

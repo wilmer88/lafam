@@ -10,6 +10,7 @@ require (
 )
 
 require github.com/kr/pretty v0.3.1 // indirect
+
 require (
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-contrib/sse v0.1.0 // indirect
