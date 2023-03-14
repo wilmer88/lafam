@@ -35,7 +35,7 @@ export class FamTable implements OnInit, OnDestroy {
   filterMembers: Ifammembers[] = [];
   jfammembers:Ifammembers[]= [];
 
-  
+
 
   performFilter(filterBy: string): Ifammembers[] {
     filterBy = filterBy.toLowerCase();
@@ -55,7 +55,7 @@ export class FamTable implements OnInit, OnDestroy {
         this.filterMembers = this.jfammembers;
       },
       error: err => this.errorMessage = err,
-    }); 
+    });
   }
 
   // constructor(private httpUserService: UserService) { }
