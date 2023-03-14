@@ -1,1 +1,0 @@
-web: go run main.go && cd client && npm start
