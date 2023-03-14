@@ -12,11 +12,11 @@
 
       "ng": "ng",
     
-      "prestart": "go build",
+      "prestart": "go run main.go",
       "lint": "ng lint",
       "e2e": "ng e2e",
-     "test": "ng test",
-     "postinstall":  "cd .. && go run main.go"
+     "test": "ng test"
+    
     },
     "dependencies": {
       "express": "^4.18.2",
