@@ -4,8 +4,6 @@
     "engines": {
       "node": "16.14.2"
     },
- 
-
     "scripts": {
 
       "start": "cd client && npm start",
