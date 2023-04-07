@@ -3,8 +3,8 @@
   "version": "0.0.2",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js && node build",
-    "build": "ng build --configuration development",
+    "start": "node server.js && npm run build",
+    "build": "ng build --configuration development && ng serve",
     "heroku-postbuild": "npm install --prefix ./client && npm run build --prefix ./client && cp -R ./client/dist/. ./public",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
