@@ -516,13 +516,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class UserService {
-  // private userUrl = 'https://localhost:4200';
-  // private userUrl = 'http://localhost:5000';
   constructor(http) {
     this.http = http;
-    // private userUrl = 'http://localhost:8080/lafamily';
-    // private userUrl = 'http://localhost:5100';
-    // private userUrl = '/';
     this.userUrl = 'https://mifamily-app.herokuapp.com';
   }
   getUsers() {
