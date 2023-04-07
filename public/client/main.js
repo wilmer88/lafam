@@ -518,7 +518,7 @@ __webpack_require__.r(__webpack_exports__);
 class UserService {
   constructor(http) {
     this.http = http;
-    this.userUrl = 'https://mifamily-app.herokuapp.com';
+    this.userUrl = "https://mifamily-app.herokuapp.com/";
   }
   getUsers() {
     return this.http.get(this.userUrl).pipe((0,rxjs__WEBPACK_IMPORTED_MODULE_0__.tap)(data => console.log('ALL:', JSON.stringify(data))), (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.catchError)(this.handleError));
