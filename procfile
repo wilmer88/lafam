@@ -1,4 +1,4 @@
-web: bin/ lafam
+web: bin/lafam.exe
 worker: cd client && npm start
 
 
