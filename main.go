@@ -42,7 +42,7 @@ func setupRouter() *gin.Engine {
 	// Set up dynamic routes
 	userRepo := controllers.New()
 	r.POST("/lafamily/post", userRepo.CreateUser)
-	r.GET("/lafamily", userRepo.GetUsers)
+	r.GET("/", userRepo.GetUsers)
 	r.GET("/lafamily/user/:id", userRepo.GetUser)
 	r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
