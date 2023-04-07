@@ -1,2 +1,2 @@
-web: bin/lafam
+web: cd client and npm start
 
