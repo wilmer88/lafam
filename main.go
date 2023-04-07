@@ -29,7 +29,7 @@ func setupRouter() *gin.Engine {
 	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 	// config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
     // config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	config.AllowOrigins = []string{"https://localhost:4200"}
+	config.AllowOrigins = []string{"https://localhost:5100/lafamily"}
 
     config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 
@@ -41,8 +41,8 @@ func setupRouter() *gin.Engine {
 
 	// Set up dynamic routes
 	userRepo := controllers.New()
-	r.POST("/lafamily", userRepo.CreateUser)
-	r.GET("/", userRepo.GetUsers)
+	r.POST("/lafamily/post", userRepo.CreateUser)
+	r.GET("/lafamily", userRepo.GetUsers)
 	r.GET("/lafamily/user/:id", userRepo.GetUser)
 	r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
