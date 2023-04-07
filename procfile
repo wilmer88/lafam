@@ -1,2 +1,2 @@
-web: cd client and npm start
+web: cd client && npm start
 
