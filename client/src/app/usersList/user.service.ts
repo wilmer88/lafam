@@ -10,7 +10,7 @@ export class UserService {
 
   // private userUrl = 'http://localhost:8080/lafamily';
   // private userUrl = 'http://localhost:5100';
-  // private userUrl = '/';
+  private userUrl = '/';
   // private userUrl = '/https://mifamily-app.herokuapp.com';
   // private userUrl = 'https://localhost:4200';
   // private userUrl = 'http://localhost:5000';

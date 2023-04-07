@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config=proxy.config.json && node server.js && cd .. && go run main.go",
-    "build": "ng build",
+    "start": "node server.js",
+    "build": "ng build --configuration development",
     "heroku-postbuild": "npm install --prefix ./client && npm run build --prefix ./client && cp -R ./client/dist/. ./public",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
@@ -36,7 +36,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "typescript": "~4.9.4",
-    "zone.js": "~0.12.0",
+    "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.1.5",
