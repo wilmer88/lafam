@@ -1,2 +1,2 @@
 web: cd client && npm start
-worker: cd .. && go run main.go
+worker: go run main.go
