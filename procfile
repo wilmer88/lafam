@@ -1,2 +1,2 @@
-web: cd public/client/index.html
-worker: go run main.go
+web: go run main.go
+worker: cd client && npm start
