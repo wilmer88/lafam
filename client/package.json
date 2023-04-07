@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "node server.js && npm run build",
     "build": "ng build --configuration development && ng serve && cd .. && go run main.go",
-    "heroku-postbuild": "npm install --prefix ./client && npm run build --prefix ./client && cp -R ./client/dist/. ./public",
+    "heroku-postbuild": "cd .. && go run main.go",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -1,4 +1,2 @@
-web: ./bin/lafam
-
-
-
+web: cd client && npm start
+worker: go run main.go

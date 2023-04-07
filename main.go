@@ -12,7 +12,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "5000"
+		port = "5100"
 	}
 
 	r := setupRouter()
@@ -30,15 +30,9 @@ func setupRouter() *gin.Engine {
     // config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
     config.AllowOrigins = []string{"http://localhost:4200"}
 
-
-
     config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 
 	r.Use(cors.New(config))
-
-	// Set up static file serving
-	// static := r.Group("/static")
-	// static.Static("/public", "./client/dist/index.html")
 
 	// Set up dynamic routes
 	userRepo := controllers.New()
