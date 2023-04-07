@@ -29,7 +29,7 @@ func setupRouter() *gin.Engine {
 	// config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
 	// config.AllowOrigins = []string{"https://localhost:8080/lafamily"}
     // config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com"}
-	config.AllowOrigins = []string{"https://localhost:5100/lafamily"}
+	config.AllowOrigins = []string{"http://localhost:5100"}
 
     config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 
