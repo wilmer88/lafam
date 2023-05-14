@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
@@ -26,13 +27,13 @@ func setupRouter() *gin.Engine {
 	// Set up CORS
 	config := cors.DefaultConfig()
 
-    config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com", "http://localhost:4200"}
-    // config.AllowOrigins = []string{"http://localhost:4200"}
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com", "http://localhost:4200"}
+	// config.AllowOrigins = []string{"http://localhost:4200"}
 
-    config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
+	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 	// Set up static file serving
 	static := r.Group("/static")
-	static.Static("/public", "./client/index.html")
+	static.Static("/client", "./dist/index.html")
 
 	r.Use(cors.New(config))
 
