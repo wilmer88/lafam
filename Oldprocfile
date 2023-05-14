@@ -1,0 +1,2 @@
+web: go run main.go
+worker: cd client && npm start

@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js && npm run build",
+    "start": "npm run build && node server.js ",
     "build": "ng build --configuration development && ng serve && cd .. && go run main.go",
     "heroku-postbuild": "cd .. && go run main.go",
     "watch": "ng build --watch --configuration development",
