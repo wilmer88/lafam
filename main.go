@@ -33,7 +33,7 @@ func setupRouter() *gin.Engine {
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 	// Set up static file serving
 	static := r.Group("/static")
-	static.Static("/client", "./dist/index.html")
+	static.Static("/public", "./client/dist/index.html")
 
 	r.Use(cors.New(config))
 
