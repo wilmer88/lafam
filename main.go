@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/wilmer88/lafam/controllers"
