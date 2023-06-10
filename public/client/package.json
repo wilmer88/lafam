@@ -3,7 +3,8 @@
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "./serve.sh",
+    "start": "npm run build && node server.js ",
+    "build": "ng serve && cd .. && go run main.go",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test"
