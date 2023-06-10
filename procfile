@@ -1,2 +1,2 @@
-web: cd public && cd client && npm start && cd .. && cd .. && go run main.go
- 
+web: cd public && cd client && npm start 
+worker: go run main.go
