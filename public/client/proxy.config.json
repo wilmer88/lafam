@@ -1,6 +1,6 @@
 {
-  "https://mifamily-app.herokuapp.com": {
-    "target": "https://mifamily-app.herokuapp.com",
+  "http://localhost:4200/": {
+    "target": "http://localhost:4200/",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": false
