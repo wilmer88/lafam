@@ -3,7 +3,8 @@
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && cd .. && cd .. && go run main.go",
+    "start": "ng serve --port  && cd .. && cd .. && go run main.go",
+    "heroku-postbuild": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test"
