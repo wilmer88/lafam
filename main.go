@@ -32,7 +32,7 @@ func setupRouter() *gin.Engine {
 	// Set up static file serving
 	// static := r.Group("/static")
 	// static.Static("/public", "./client/dist")
-	r.StaticFile("/", "./client/dist/index.html")
+	r.StaticFile("/", "./public/client/dist/index.html")
 	r.Static("/public", "./client/dist")
 
 
