@@ -11,7 +11,7 @@ app.use(requireHTTPS);
 app.use('/lafam', serveStatic(path.join(__dirname, '/public')))
 app.use(express.static(path.join(__dirname,'public')))
 
-app.use(express.static(__dirname + "/dist/client"));
+app.use(express.static(__dirname + "/public/client/dist"));
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/client/index.html'
