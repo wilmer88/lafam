@@ -18,7 +18,6 @@ func main() {
 	_ = r.Run("0.0.0.0:" + port)
 
 }
-
 func setupRouter() *gin.Engine {
 	// gin.SetMode(gin.DebugMode)
 	r := gin.Default()
@@ -41,7 +40,6 @@ func setupRouter() *gin.Engine {
 	r.POST("/lafamily/post", userRepo.CreateUser)
 	r.GET("/api/lafam", userRepo.GetUsers)
 	// r.GET("https://mifamily-app.herokuapp.com", userRepo.GetUsers)
-
 	r.GET("/lamily/user/:id", userRepo.GetUser)
 	r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
 	r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
