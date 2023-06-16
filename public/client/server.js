@@ -8,8 +8,8 @@ function requireHTTPS(req, res, next) {
 const express = require('express');
 const app = express();
 app.use(requireHTTPS);
-app.use('/lafam', serveStatic(path.join(__dirname, '/public')))
-app.use(express.static(path.join(__dirname,'public')))
+// app.use('/dist', serveStatic(path.join(__dirname, '/public')))
+// app.use(express.static(path.join(__dirname,'public')))
 
 app.use(express.static(__dirname + "/public/client/dist"));
 
