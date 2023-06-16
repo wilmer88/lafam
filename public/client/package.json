@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build && node server.js ",
-    "build": "ng build --configuration development && ng serve",
+    "build": "env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "heroku-postbuild": "cd .. && go run main.go",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
