@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://mifamily-app.herokuapp.com/",
+    "target": "https://mifamily-app.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": false
