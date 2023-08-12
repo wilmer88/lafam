@@ -46,12 +46,11 @@ func setupRouter() *gin.Engine {
 	// Set up CORS
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com", "http://localhost:5000"}
-	// config.AllowOrigins = []string{"http://localhost:4200"}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 	r.Use(cors.New(config))
 
 	// Set up static file serving
-	// static := r.Group("/static")
+	// static := r.Group("/static");
 	// static.Static("/public", "./client/dist")
 	// r.StaticFile("/public", "./client/dist/index.html")
 	// r.Static("/public", "./client/dist")
