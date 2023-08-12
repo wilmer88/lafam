@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "../../serve.sh",
+    "start": "ng serve",
     "build": "ng build --configuration development && ng serve",
     "heroku-postbuild": "ng build",
     "watch": "ng build --watch --configuration development",
