@@ -67,7 +67,7 @@ func setupRouter() *gin.Engine {
 	// static := r.Group("/static")
 	// static.Static("/public", "./client/dist")
 	// r.StaticFile("/public", "./client/dist/index.html")
-	r.Static("/public", "./client/dist")
+	// r.Static("/public", "./client/dist")
 
 
 
