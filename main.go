@@ -39,18 +39,6 @@ import (
 // 	w.Write(jsonBytes)
 // 	return
 //   }
-
-func main() {
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "5000"
-	}
-
-	r := setupRouter()
-	_ = r.Run("0.0.0.0:" + port)
-
-}
 func setupRouter() *gin.Engine {
 	// gin.SetMode(gin.DebugMode)
 	r := gin.Default()
@@ -82,3 +70,16 @@ func setupRouter() *gin.Engine {
 
 	return r
 }
+
+func main() {
+	r := setupRouter()
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5000"
+	}
+
+	r.Run(":" + port)
+
+}
+
