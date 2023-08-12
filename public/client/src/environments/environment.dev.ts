@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  serverUrl: 'https://localhost:5100'
+  serverUrl: 'http://localhost:5100/api/lafam'
 };
