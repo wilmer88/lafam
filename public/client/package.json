@@ -3,13 +3,14 @@
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --configuration development && ng serve",
     "heroku-postbuild": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
+    "preinstall": "npm install -g @angular/cli",
     "postinstall": "ng build --prod --aot"
   },
   "static": {
