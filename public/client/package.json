@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --prod --aot"
   },
   "static": {
     "root": "dist/",
