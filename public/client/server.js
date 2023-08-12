@@ -9,7 +9,7 @@ const express = require('express');
 const app = express();
 app.use(requireHTTPS);
 // app.use('../public', serveStatic(path.join(__dirname, '/client')))
-app.use(express.static(path.join(__dirname,'public')))
+// app.use(express.static(path.join(__dirname,'public')))
 
 app.use(express.static(__dirname + "/public/client/dist"));
 
