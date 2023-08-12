@@ -7,7 +7,7 @@ import { Ifammembers } from './Imembers';
 })
 
 export class UserService {
-  private userUrl = "/"
+  private userUrl = "/lafam"
   // private userUrl = "http://localhost:5000/api/lafam";
 
   constructor(private http: HttpClient) { };
