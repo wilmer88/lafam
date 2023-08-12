@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    serverUrl: 'https://mifamily-app.herokuapp.com/api/lafam'
+    serverUrl: 'https://mifamily-app.herokuapp.com'
 };

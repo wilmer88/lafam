@@ -57,7 +57,7 @@ func setupRouter() *gin.Engine {
 
 	// Set up CORS
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com/api/lafam", "http://localhost:4200"}
+	config.AllowOrigins = []string{"https://mifamily-app.herokuapp.com", "http://localhost:4200"}
 	// config.AllowOrigins = []string{"http://localhost:4200"}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
 	r.Use(cors.New(config))
@@ -74,7 +74,7 @@ func setupRouter() *gin.Engine {
 	r.GET("mifamily-app.herokuapp.com/api/lafam", userRepo.GetUsers)
 	r.GET("mifamily-app.herokuapp.com/lamily/user/:id", userRepo.GetUser)
 	r.PUT("mifamily-app.herokuapp.com/lafamily/user/:id", userRepo.UpdateUser)
-	r.DELETE("https:mifamily-app.herokuapp.com/lafamily/user/:id", userRepo.DeleteUser)
+	r.DELETE("mifamily-app.herokuapp.com/lafamily/user/:id", userRepo.DeleteUser)
 	// r.GET("/api/lafam", userRepo.GetUsers)
 	// r.GET("/lamily/user/:id", userRepo.GetUser)
 	// r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
