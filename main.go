@@ -69,8 +69,6 @@ func setupRouter() *gin.Engine {
 	// r.StaticFile("/public", "./client/dist/index.html")
 	// r.Static("/public", "./client/dist")
 
-
-
 	// Set up dynamic routes
 	userRepo := controllers.New()
 	r.POST("mifamily-app.herokuapp.com/lafamily/post", userRepo.CreateUser)
