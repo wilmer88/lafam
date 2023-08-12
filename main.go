@@ -73,12 +73,15 @@ func setupRouter() *gin.Engine {
 
 	// Set up dynamic routes
 	userRepo := controllers.New()
-	r.POST("/lafamily/post", userRepo.CreateUser)
-	r.GET("/api/lafam", userRepo.GetUsers)
-	r.GET("https://mifamily-app.herokuapp.com/api/lafam", userRepo.GetUsers)
-	r.GET("/lamily/user/:id", userRepo.GetUser)
-	r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
-	r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
+	r.POST("mifamily-app.herokuapp.com/lafamily/post", userRepo.CreateUser)
+	r.GET("mifamily-app.herokuapp.com/api/lafam", userRepo.GetUsers)
+	r.GET("mifamily-app.herokuapp.com/lamily/user/:id", userRepo.GetUser)
+	r.PUT("mifamily-app.herokuapp.com/lafamily/user/:id", userRepo.UpdateUser)
+	r.DELETE("https:mifamily-app.herokuapp.com/lafamily/user/:id", userRepo.DeleteUser)
+	// r.GET("/api/lafam", userRepo.GetUsers)
+	// r.GET("/lamily/user/:id", userRepo.GetUser)
+	// r.PUT("/lafamily/user/:id", userRepo.UpdateUser)
+	// r.DELETE("/lafamily/user/:id", userRepo.DeleteUser)
 
 	return r
 }
